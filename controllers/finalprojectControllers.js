@@ -3,7 +3,7 @@ import finalprojectModel from "../models/finalprojectModel.js";
 const getAllFinalproject = async (req, res)=> { 
     try { 
         const allFinalproject = await finalprojectModel.find();
-        return res.jason(allFinalproject)
+        return res.json(allFinalproject)
 
     }catch(error)  { 
         return res.status(500).json({error: error.message})

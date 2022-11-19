@@ -1,34 +1,51 @@
-import mongoose, { models } from 'mongoose';
+import mongoose from 'mongoose';
 const {Schema, model} = mongoose;
 
-const finalprojectSchema = new Schema({ 
+const Users = new Schema({ 
+    id: {
+        type: Number,
+    },
     name: { 
         type: String,
         required: true,
         minlength: 3,
         maxlength: 25,
     } ,
-    description: { 
+    email: { 
         type: String,
         required: true,
     } ,
-    personalDeadliness: { 
-        type: Number,
+/*     media_location: { 
+        type: String,
         required: true,
-        min: 1,
-        max: 10
-    } ,
-    influence: { 
-        type: Number,
+    } , */
+    password: { 
+        type: String,
         required: true,
-        min: 1,
-        max: 10
-    },
-    isRecovering: { 
-        type: Boolean,
-        default: false,
+        min: 5,
+        max: 15,
     },
     image: String,
 });
 
-export default model('finalproject', finalprojectSchema )
+const Posts = new Schema({
+    id: {
+        type: Number,
+    },
+    timestamps: true,
+    text: {
+        type: String,
+        required: true,
+        minlength: 10,
+        maxlength: 550,
+    },
+    location: {
+        type: String,
+        required: true,
+        minlength: 10,
+        maxlength: 100,
+    },
+
+});
+
+export default model('Users', Users, 'Posts', Posts )
