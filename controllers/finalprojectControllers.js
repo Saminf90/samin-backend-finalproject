@@ -18,7 +18,7 @@ const getAllFinalproject = async (req, res)=> {
  }
  const createFinalproject = async (req, res)=> { 
     try { 
-        if(!name || !description || !personalDeadliness || !influence || !image) return res.jason(400).jason({error: 'please provide all fields'})
+       if(!name || !description || !personalDeadliness || !influence || !image) return res.jason(400).jason({error: 'please provide all fields'})
        const {name, description, personalDeadliness, influence, image} = req.body;
        const newFinalproject = await finalprojectModel.create({name, description, personalDeadliness, influence, image})
        return res.json(newFinalproject)
