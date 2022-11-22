@@ -15,9 +15,10 @@ app.use(express.urlencoded({extended: true}));
 
 
 app.get("/", (req, res) =>
-  res.status(200).json({ hello: "What do you know about eco-friendly app?" })
+  res.status(200).json({ hello: "Welcome to eco-friendly app?" })
 );
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
 })
+
